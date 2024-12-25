@@ -39,10 +39,19 @@ public class edmundsTest extends basePage {
     @Test
     public void test1(){
         Log.info("Application Launched");
-        Log.info("Application Title is present ");
         waitTillElementPresent(homePage.title);
         Assert.assertTrue(isElementDisplayed(homePage.title));
         Log.info("Title is present");
+    }
+
+    @Test
+    public void test2(){
+        homePage.title.sendKeys("Tata Suv");
+    }
+
+    @Test
+    public void test3(){
+
     }
 
 }

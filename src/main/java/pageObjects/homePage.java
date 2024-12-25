@@ -10,7 +10,12 @@ public class homePage extends basePage {
         PageFactory.initElements(driver, this);
     }
 
-    @FindBy(xpath = "//*[@id='gh-logo']")
+    @FindBy(xpath = "//tag[@css='']")
     public static WebElement title;
+
+    @FindBy(id = "")
+    public static WebElement title3;
+
+
 
 }
