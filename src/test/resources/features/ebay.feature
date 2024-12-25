@@ -4,9 +4,9 @@ Feature: BDD FRAMEWORK QUESTION CREATION
     Given Launch the application
     And Wait until application is loaded completely
     Then Validate the page title
-    When Hover on the "Electronics" section
-    And Navigate to "Smart home" category
-    Then Validate that "Smart home" category screen is displayed
+    When Hover on the Electronics section
+    And Navigate to Smart home category
+    Then Validate that Smart home category screen is displayed
     And Validate the number of results available
 
   Scenario: Hovering, entering values in a input box and Button clicks
