@@ -1,4 +1,4 @@
-package stepDefs;
+package tests;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -7,7 +7,6 @@ import io.cucumber.java.en.When;
 import org.testng.Assert;
 import pageObjects.homePage;
 import utility.Log;
-import pageObjects.basePage;
 
 public class ebayStepDef extends homePage {
     @Given("Launch the application")
