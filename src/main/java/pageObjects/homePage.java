@@ -24,4 +24,23 @@ public class homePage extends basePage {
 
     @FindBy(xpath= "//a[text()='Smart home']")
     public static WebElement smartHomeCategory;
+
+    @FindBy(xpath= "//h1[text()='Surveillance & Smart Home Electronics']")
+    public static WebElement smartHomeTitle;
+
+    @FindBy(xpath= "//h2[text()='468,833 Results']")
+    public static WebElement smartHomeResults;
+
+    @FindBy(xpath= "//a[text()='Smartphones and accessories']")
+    public static WebElement smartPhoneCategory;
+
+    @FindBy(xpath= "//*[@id='gh-btn']")
+    public static WebElement searchhButton;
+
+    @FindBy(xpath= "//h1[text()='Cell Phones, Smart Watches & Accessories']")
+    public static WebElement smartPhoneTitle;
+
+    @FindBy(xpath= "//*[@id='gh-ac']")
+    public static WebElement searchhTextBox;
+
 }

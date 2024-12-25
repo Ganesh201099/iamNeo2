@@ -42,11 +42,47 @@ public class ebayStepDef extends homePage {
 
     @Then("Validate that Smart home category screen is displayed")
     public void validateThatSmartHomeCategoryScreenIsDisplayed() {
-        
+        Assert.assertTrue(isElementDisplayed(homePage.smartHomeTitle));
+        Log.info("Smart home page Title is present");
     }
 
     @And("Validate the number of results available")
     public void validateTheNumberOfResultsAvailable() {
+        Assert.assertTrue(isElementDisplayed(homePage.smartHomeResults));
+        Log.info("Smart home results is present");
     }
 
+    @And("Navigate to Smartphones category")
+    public void navigateToSmartphonesCategory() {
+        waitTillElementPresent(homePage.smartPhoneCategory);
+        clickOnElement(homePage.smartPhoneCategory);
+        Log.info("Clicked on Smart Phone Category");
+    }
+
+    @And("Enter {string} in search box")
+    public void enterInSearchBox(String brand) {
+        waitTillElementPresent(homePage.searchhTextBox);
+        homePage.searchhTextBox.sendKeys(brand);
+    }
+
+    @And("Click on Search button")
+    public void clickOnSearchButton() {
+        clickOnElement(homePage.searchhButton);
+    }
+
+    @Then("Validate that Smartphones category screen is displayed")
+    public void validateThatSmartphonesCategoryScreenIsDisplayed() {
+        Assert.assertTrue(isElementDisplayed(homePage.smartPhoneTitle));
+        Log.info("Smart Phone results is present");
+    }
+
+    @Given("Navigate to home page")
+    public void navigateToHomePage() {
+        clickOnElement(homePage.title);
+    }
+
+    @And("Switch to New tab")
+    public void switchToNewTab() {
+        switchToNewWindow();
+    }
 }

@@ -20,6 +20,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.time.Duration;
 import java.util.Properties;
+import java.util.Set;
 
 public class basePage {
     public static RemoteWebDriver driver;
@@ -86,6 +87,21 @@ public class basePage {
         } catch (Exception e) {
             Log.error("Click on Element error:" + e);
             //System.out.println("Click on Element error: "+ e);
+        }
+    }
+
+    public void switchToNewWindow() {
+        try {
+            Set<String> windowHandles = driver.getWindowHandles();
+            for (String windowHandle : windowHandles) {
+                if (!windowHandle.isEmpty()) {
+                    driver.switchTo().window(windowHandle);
+                } else {
+                    throw new Exception("New window could not be retrieved");
+                }
+            }
+        } catch (Exception e) {
+            Log.error("Error: "+e);
         }
     }
 }
