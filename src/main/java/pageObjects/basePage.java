@@ -26,7 +26,7 @@ public class basePage {
     public static String ConfigurationFile = System.getProperty("user.dir") + "/Configs/Configuration.properties";
     WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(10));
     public static void initateBrowser() throws IOException {
-        System.out.println("Initializing the desktop web browser");
+        System.out.println("Initializing the web browser");
         FileInputStream fis = new FileInputStream(ConfigurationFile);
         Properties prop = new Properties();
         prop.load(fis);
