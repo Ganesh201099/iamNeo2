@@ -11,6 +11,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.safari.SafariOptions;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import utility.Log;
@@ -24,7 +25,10 @@ import java.util.Set;
 public class basePage {
     public static RemoteWebDriver driver;
     public static String ConfigurationFile = System.getProperty("user.dir") + "/Configs/Configuration.properties";
-    WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(10));
+    static WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(10));
+    public basePage() {
+        PageFactory.initElements(driver, this);
+    }
     public static void initateBrowser() throws IOException {
         System.out.println("Initializing the web browser");
         FileInputStream fis = new FileInputStream(ConfigurationFile);
@@ -61,7 +65,7 @@ public class basePage {
         }
     }
 
-    public void waitTillElementPresent(WebElement element){
+    public static void waitTillElementPresent(WebElement element){
         wait.until(ExpectedConditions.visibilityOf(element));
     }
 
@@ -70,7 +74,7 @@ public class basePage {
         return element.isDisplayed();
     }
 
-    public void hoverOverElement(WebElement element) {
+    public static void hoverOverElement(WebElement element) {
         try {
             Actions actions = new Actions(driver);
             actions.moveToElement(element).perform();
@@ -80,7 +84,7 @@ public class basePage {
         }
     }
 
-    public void clickOnElement(WebElement element) {
+    public static void clickOnElement(WebElement element) {
         try {
             element.click();
         } catch (Exception e) {

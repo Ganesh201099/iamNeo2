@@ -2,26 +2,41 @@ package tests;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
-import org.testng.Assert;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import pageObjects.basePage;
 import pageObjects.homePage;
-import utility.Log;
 import utility.Report;
 
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.Properties;
 
 public class edmundsTest extends basePage {
-
+    public static RemoteWebDriver driver;
+    static homePage homePage =new homePage();
     static ExtentReports report;
     public static ExtentTest test;
+    public edmundsTest() {
+
+        PageFactory.initElements(driver, this);
+    }
 
     @BeforeSuite
-    public void setScenario() {
-
+    public void setScenario() throws IOException {
+//        //public static void initateBrowser() throws IOException {
+//            System.out.println("Initializing the web browser");
+//            FileInputStream fis = new FileInputStream(ConfigurationFile);
+//            Properties prop = new Properties();
+//            prop.load(fis);
+//            String browserName = prop.getProperty("browser");
+//            Browser_Launch(browserName);
+//            driver.get(prop.getProperty("url"));
+//        //}
     }
 
     @BeforeTest
@@ -36,24 +51,47 @@ public class edmundsTest extends basePage {
         driver.quit();
     }
 
-    @Test
-    public void test1(){
-        //To be implemnted
-        Log.info("Application Launched");
-        waitTillElementPresent(homePage.title);
-        Assert.assertTrue(isElementDisplayed(homePage.title));
-        Log.info("Title is present");
+
+    @Test(priority = 1)
+    public static void testHoverAndClick() {
+        // Hover over the "New Cars" menu and click "Car Reviews"
+        //waitTillElementPresent(title);
+        clickOnElement(homePage.title);
+        clickOnElement(homePage.newCarsSection);
+        clickOnElement(homePage.title);
+        clickOnElement(homePage.carReviewsSection);
+        clickOnElement(homePage.title);
+        clickOnElement(homePage.ev);
+        clickOnElement(homePage.title);
+        clickOnElement(homePage.suv);
+        clickOnElement(homePage.title);
+        clickOnElement(homePage.sedan);
+        clickOnElement(homePage.title);
+        clickOnElement(homePage.notifyButton);
+
     }
 
-    @Test
-    public void test2(){
-        //To be implemnted
-        homePage.title.sendKeys("Tata Suv");
+    @Test(priority = 2)
+    public static void testSearchForToyota(){
+        // Search for 'Toyota' in the search box
+        clickOnElement(homePage.title);
+        clickOnElement(homePage.searchTextBox);
+        String toyota="Toyota";
+        homePage.searchTextBox.sendKeys(toyota);
+        //waitTillElementPresent(newCarsSection);
+        clickOnElement(homePage.allToyotaModels);
+
+
     }
 
-    @Test
-    public void test3(){
-        //To be implemnted
-    }
+    @Test(priority = 3)
+    public static void testCarSectionsAndSelectEvCars() {
+        // Hover over a "Menu Item"
+        hoverOverElement(homePage.usedCarsSection);
+        clickOnElement(homePage.usedCarsSection);
+        clickOnElement(homePage.newCarAnyMakeDropdown);
+        clickOnElement(homePage.newCarGoButton);
+        clickOnElement(homePage.ev);
 
+    }
 }
