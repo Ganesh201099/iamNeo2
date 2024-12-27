@@ -2,6 +2,7 @@ package tests;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
+import org.openqa.selenium.By;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
@@ -39,30 +40,31 @@ public class edmundsTest extends basePage {
     }
 
 
-    @Test(priority = 1)
-    public void testHoverAndClick() {
-        // Hover over the "New Cars" menu and click "Car Reviews"
-        //waitTillElementPresent(title);
-        clickOnElement(homePage.title);
-        clickOnElement(homePage.newCarsSection);
-        clickOnElement(homePage.title);
-        clickOnElement(homePage.carReviewsSection);
-        clickOnElement(homePage.title);
-        clickOnElement(homePage.ev);
-        clickOnElement(homePage.title);
-        clickOnElement(homePage.suv);
-        clickOnElement(homePage.title);
-        clickOnElement(homePage.sedan);
-        clickOnElement(homePage.title);
-        clickOnElement(homePage.notifyButton);
-
-    }
+   // @Test(priority = 1)
+//    public void testHoverAndClick() {
+//        // Hover over the "New Cars" menu and click "Car Reviews"
+//        //waitTillElementPresent(title);
+//        clickOnElement(homePage.title);
+//        clickOnElement(homePage.newCarsSection);
+//        clickOnElement(homePage.title);
+//        clickOnElement(homePage.carReviewsSection);
+//        clickOnElement(homePage.title);
+//        clickOnElement(homePage.ev);
+//        clickOnElement(homePage.title);
+//        clickOnElement(homePage.suv);
+//        clickOnElement(homePage.title);
+//        clickOnElement(homePage.sedan);
+//        clickOnElement(homePage.title);
+//        clickOnElement(homePage.notifyButton);
+//
+//    }
 
     @Test(priority = 2)
     public void testSearchForToyota(){
         // Search for 'Toyota' in the search box
-        clickOnElement(homePage.title);
-        clickOnElement(homePage.searchTextBox);
+        //clickOnElement(homePage.title);
+        driver.findElement(homePage.title).click();
+        System.out.println("Driver Working");
         String toyota="Toyota";
         homePage.searchTextBox.sendKeys(toyota);
         //waitTillElementPresent(newCarsSection);

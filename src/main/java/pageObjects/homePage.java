@@ -1,5 +1,6 @@
 package pageObjects;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -12,7 +13,7 @@ public class homePage extends basePage {
     }
 
     @FindBy(xpath = "//*[@class='logo-section py-1']")
-        public WebElement title;
+        public By title ;
 
     @FindBy(xpath= "//*[@data-tracking-id='global_nav_select_new_car']")
     public WebElement newCarsSection;
