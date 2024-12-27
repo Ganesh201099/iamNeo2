@@ -26,9 +26,7 @@ public class basePage {
     public static RemoteWebDriver driver;
     public static String ConfigurationFile = System.getProperty("user.dir") + "/Configs/Configuration.properties";
     static WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(10));
-    public basePage() {
-        PageFactory.initElements(driver, this);
-    }
+
     public static void initateBrowser() throws IOException {
         System.out.println("Initializing the web browser");
         FileInputStream fis = new FileInputStream(ConfigurationFile);

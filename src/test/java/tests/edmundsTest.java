@@ -2,7 +2,6 @@ package tests;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
-import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
@@ -12,31 +11,19 @@ import pageObjects.basePage;
 import pageObjects.homePage;
 import utility.Report;
 
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.Properties;
 
 public class edmundsTest extends basePage {
-    public static RemoteWebDriver driver;
-    static homePage homePage =new homePage();
+    homePage homePage =new homePage();
     static ExtentReports report;
     public static ExtentTest test;
     public edmundsTest() {
-
         PageFactory.initElements(driver, this);
     }
 
     @BeforeSuite
     public void setScenario() throws IOException {
-//        //public static void initateBrowser() throws IOException {
-//            System.out.println("Initializing the web browser");
-//            FileInputStream fis = new FileInputStream(ConfigurationFile);
-//            Properties prop = new Properties();
-//            prop.load(fis);
-//            String browserName = prop.getProperty("browser");
-//            Browser_Launch(browserName);
-//            driver.get(prop.getProperty("url"));
-//        //}
+
     }
 
     @BeforeTest
@@ -47,13 +34,13 @@ public class edmundsTest extends basePage {
     }
 
     @AfterSuite
-    public static void tearDown() throws Exception {
+    public void tearDown() throws Exception {
         driver.quit();
     }
 
 
     @Test(priority = 1)
-    public static void testHoverAndClick() {
+    public void testHoverAndClick() {
         // Hover over the "New Cars" menu and click "Car Reviews"
         //waitTillElementPresent(title);
         clickOnElement(homePage.title);
@@ -72,7 +59,7 @@ public class edmundsTest extends basePage {
     }
 
     @Test(priority = 2)
-    public static void testSearchForToyota(){
+    public void testSearchForToyota(){
         // Search for 'Toyota' in the search box
         clickOnElement(homePage.title);
         clickOnElement(homePage.searchTextBox);
@@ -85,7 +72,7 @@ public class edmundsTest extends basePage {
     }
 
     @Test(priority = 3)
-    public static void testCarSectionsAndSelectEvCars() {
+    public void testCarSectionsAndSelectEvCars() {
         // Hover over a "Menu Item"
         hoverOverElement(homePage.usedCarsSection);
         clickOnElement(homePage.usedCarsSection);
